@@ -4,15 +4,17 @@
     <% @cocktails.each do |cocktail| %>
       <div class="col-md-4">
         <div class="card">
-          <%= image_tag "2.jpg", class: "img-fluid" %>
+        <%= cl_image_tag cocktail.photo.key, height: 300, width: 300, crop: :fill, class: "img-fluid" %>
         </div>
         <div class="card-footer">
         <h3>
           <%= link_to "#{cocktail["name"]}", cocktail_path(cocktail["id"]), id:"LinkTitle"%>
+          <%= link_to "Delete", method: :delete,
+          data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      <% end %>
         </h3>
         </div>
       </div>
-    <% end %>
   </div>
 </div>
 
