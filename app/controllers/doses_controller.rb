@@ -9,6 +9,8 @@ class DosesController < ApplicationController
 
   def create
     @dose = Dose.new(dose_params)
+    @cocktail = Cocktail.find(params[:cocktail_id])
+    @dose.cocktail = @cocktail
 
     if @dose.save
       redirect_to cocktail_path(@dose.cocktail)
@@ -21,8 +23,8 @@ class DosesController < ApplicationController
     @dose = Dose.find(params[:id])
     @dose.destroy
 
-    # no need for app/views/restaurants/destroy.html.erb
-    redirect_to dose_path
+
+    redirect_to cocktail_path(@dose.cocktail)
   end
 
   private

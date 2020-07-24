@@ -12,6 +12,13 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-dark">
+    <%= link_to "THE COCKTAIL JURNAL", cocktails_path, class: "navbar-brand letruski mx-3" %>
+    <form class="form-inline mx-3">
+      <%= link_to "Add Cocktail", new_cocktail_path, class: "btn btn-outline-light my-2 my-sm-0" %>
+    </form>
+  </nav>
+
     <%= yield %>
   </body>
 </html>

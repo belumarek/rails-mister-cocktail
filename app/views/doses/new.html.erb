@@ -1,1 +1,7 @@
-new.html.erb
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.association :ingredient %>
+  <%= f.input :description %>
+  <%= f.submit class: "btn btn-success" %>
+  <%= link_to "CANCEL", cocktails_path, class: "btn btn-danger"%>
+<% end %>
+
